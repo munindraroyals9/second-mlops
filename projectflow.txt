@@ -1,0 +1,20 @@
+1) create a git repo and clone it in local
+2) create mycode.py and add code to it. (It will save a csv file to a new "data" folder)
+
+3) Do a git  add-commit-push before installing dvc
+#pip install dvc 
+
+4) Now we do " dvc init" (creates .dvcignore,.dvc) 
+5) Now we  do "mkdir s3" (create a new s3 directory)
+6) Now we do " dvc remote and -d myremote s3"
+7)Nxt "dvc add/data"
+    Now it will as to do: ("git rm -r --cached 'data" and "git commit -m " "stop tracking data"")
+    Because installing we were  tracking data/ folder from git so now we remove it for DVC to handle
+8) Again we do "dvc add data/" (creates data.dvc) then "git add .gitignore data.dvc"
+9) Now - "dvc commit" and "dvc push"
+10) Do a git add-commit-push  to make this stage as first version of data
+11) Now make changes  to mycode.py to append a new row in data , check changes via "python -m dvc status"
+12) Again -- "dvc commit" and then "dvc push"
+13) Then git add-commit-push (we are saving v2 of our data at this point)
+14) check dvc/git status, everything should be upto DataFrame
+15) Now repeat steps 11 to 15 for v3 of data
