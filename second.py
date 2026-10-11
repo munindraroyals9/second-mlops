@@ -37,6 +37,14 @@ new_row_v4 = pd.DataFrame([{
 }])
 df=pd.concat([df,new_row_v4],ignore_index=True)
 
+# Add a new row using pd.concat() v3
+new_row_v5 = pd.DataFrame([{
+    'Name': 'MANJU',
+    'Age': 26,
+    'City': 'BENGULURU'
+}])
+df=pd.concat([df,new_row_v5],ignore_index=True)
+
 
 
 #make sure the directory      exists
